@@ -2,6 +2,7 @@
 
 namespace SimpleDatabaseOrmTest;
 
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use SimpleDataBaseOrm\DatabaseConfiguration;
 
@@ -12,7 +13,7 @@ class DatabaseConfigurationTest extends TestCase
      *
      * @expectedException InvalidArgumentException
      */
-    public function testConfigurationExceptions()
+    public function testConfigurationException()
     {
         $this->expectException(InvalidArgumentException::class);
 

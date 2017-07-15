@@ -18,6 +18,8 @@ abstract class Connector
 
     abstract public function connect($config);
 
+    abstract protected function getDns($config);
+
     /**
      * Create a new connection to database
      * @param $dns

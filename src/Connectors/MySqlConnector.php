@@ -9,12 +9,10 @@ class MySqlConnector extends Connector
         return $this->createConnection($this->getDns($config), $config, $this->options);
     }
 
-    private function getDns($config)
+    protected function getDns($config)
     {
-        extract($config);
-
         return isset($config['port'])
-            ? "mysql:host={$hostname};port={$port};dbname={$database}"
-            : "mysql:host={$hostname};dbname={$database}";
+            ? "mysql:host={$config['hostname']};port={$config['port']};dbname={$config['database']}"
+            : "mysql:host={$config['hostname']};dbname={$config['database']}";
     }
 }

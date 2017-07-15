@@ -43,14 +43,14 @@ class DatabaseConfiguration
      */
     private function readConfig($config)
     {
-        if (is_file($config))
+        if (is_string($config) && is_file($config))
         {
             return $this->configuration = require $config;
         }
 
         if (is_array($config) )
         {
-            $this->configuration = $config;
+            return $this->configuration = $config;
         }
 
         throw new InvalidArgumentException("No Database configurations were provided");

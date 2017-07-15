@@ -4,6 +4,7 @@ namespace SimpleDataBaseOrm;
 
 use SimpleDataBaseOrm\Connectors\MySqlConnector;
 use InvalidArgumentException;
+use SimpleDataBaseOrm\Connectors\SqliteConnector;
 
 class ConnectionFactory
 {
@@ -18,6 +19,8 @@ class ConnectionFactory
         {
             case 'mysql':
                 return (new MySqlConnector)->connect($config);
+            case 'sqlite':
+                return (new SqliteConnector)->connect($config);
         }
 
         throw new InvalidArgumentException("Unsupported driver [{$config['driver']}]");
