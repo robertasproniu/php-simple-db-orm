@@ -1,5 +1,4 @@
 <?php
-namespace SimpleDataBaseOrmTest;
 
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
