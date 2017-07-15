@@ -1,0 +1,19 @@
+{
+    "name": "robertasproniu/php-simple-db-orm",
+    "authors": [
+        {
+            "name": "Robert Asproniu",
+            "email": "robert.asproniu.work@gmail.com"
+        }
+    ],
+
+    "require": {
+        "php" : ">=5.6"
+    },
+
+    "autoload": {
+        "psr-4" : {
+          "SimpleDataBaseOrm\\" : "src/"
+        }
+    }
+}
