@@ -1,9 +1,9 @@
 <?php
 
-use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
+use SimpleDataBaseOrm\DatabaseConfiguration;
 
-class DatabaseConfiguration extends TestCase
+class DatabaseConfigurationTest extends TestCase
 {
     /**
      * Test invalid configuration format
