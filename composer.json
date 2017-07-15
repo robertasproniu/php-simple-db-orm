@@ -27,8 +27,8 @@
     },
 
     "autoload-dev": {
-        "classmap" : [
-            "tests"
-        ]
+        "psr-0" : {
+            "SimpleDataBaseOrmTest\\" : "tests/"
+        }
     }
 }

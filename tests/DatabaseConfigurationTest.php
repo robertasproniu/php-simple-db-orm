@@ -1,5 +1,7 @@
 <?php
 
+namespace SimpleDatabaseOrmTest;
+
 use PHPUnit\Framework\TestCase;
 use SimpleDataBaseOrm\DatabaseConfiguration;
 
