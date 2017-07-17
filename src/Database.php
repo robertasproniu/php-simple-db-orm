@@ -23,7 +23,7 @@ class Database
     private $currentConnection = null;
 
     /**
-     * @var ConnectionFactory
+     * @var DatabaseConnection
      */
     private $connectionFactory;
     /**
@@ -33,10 +33,10 @@ class Database
 
     /**
      * Database constructor.
-     * @param ConnectionFactory $connectionFactory
+     * @param DatabaseConnection $connectionFactory
      * @param DatabaseConfiguration $configuration
      */
-    public function __construct(ConnectionFactory $connectionFactory, DatabaseConfiguration $configuration)
+    public function __construct(DatabaseConnection $connectionFactory, DatabaseConfiguration $configuration)
     {
         $this->connectionFactory = $connectionFactory;
 
@@ -131,11 +131,6 @@ class Database
      */
     public function transaction(Closure $callback)
     {
-        if ( ! $callback || ! is_callable($callback) )
-        {
-            throw new InvalidArgumentException("A callback should pass for transaction");
-        }
-
         return new TransactionStatement($this, $this->currentConnection, $callback);
     }
 }

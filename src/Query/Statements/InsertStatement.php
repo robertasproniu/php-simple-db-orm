@@ -14,11 +14,11 @@ class InsertStatement extends Statement
 
     protected $fetch = false;
 
-    public function __construct(ConnectionInterface $connection, array $columns = [])
+    public function __construct(ConnectionInterface $connection, array $columns)
     {
         parent::__construct($connection);
 
-        if (!empty($columns)) $this->columns = $columns;
+        $this->columns = $columns;
     }
 
     private function parseValues()

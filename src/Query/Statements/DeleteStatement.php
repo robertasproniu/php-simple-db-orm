@@ -44,7 +44,7 @@ class DeleteStatement extends Statement
 
         $rows = $this->connection->rows();
 
-        return $rows ? [$rows] : [];
+        return $rows ? [ 'rows' => $rows ] : [];
     }
 
     public function __toString()

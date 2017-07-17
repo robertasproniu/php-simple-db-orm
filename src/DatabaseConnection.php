@@ -6,7 +6,7 @@ use SimpleDataBaseOrm\Connectors\MySqlConnector;
 use InvalidArgumentException;
 use SimpleDataBaseOrm\Connectors\SqliteConnector;
 
-class ConnectionFactory
+class DatabaseConnection
 {
     public function createConnection(array $config = [])
     {
