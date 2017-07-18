@@ -28,7 +28,9 @@ class WhereClause extends Clause
         '<',
         '>=',
         '<=',
-        '<>'
+        '<>',
+        'LIKE',
+        'NOT LIKE'
     ];
 
     /**
@@ -51,7 +53,7 @@ class WhereClause extends Clause
             $operator = $this->operators[0];
         }
 
-        if (! in_array( strtoupper($operator), array_keys($this->operators)) )
+        if (! in_array( strtoupper($operator), $this->operators) )
         {
             throw new ClauseInvalidArgumentException(sprintf("Invalid  operator provided. Allowed %s", implode(',', $this->operators)));
         }
