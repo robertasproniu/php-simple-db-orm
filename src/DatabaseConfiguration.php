@@ -66,7 +66,7 @@ class DatabaseConfiguration
             throw new InvalidArgumentException("No connection defined. At least one is connection is necessary");
         }
 
-        if ( empty($this->configuration['default']) || empty($this->configuration['connections']['default']))
+        if ( empty($this->configuration['default']) || empty($this->configuration['connections'][$this->configuration['default']]))
         {
             throw new InvalidArgumentException("No default configurations to Database!");
         }

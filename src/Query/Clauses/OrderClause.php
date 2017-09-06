@@ -3,12 +3,23 @@
 namespace SimpleDataBaseOrm\Query\Clauses;
 
 
+use SimpleDataBaseOrm\Query\Exceptions\ClauseInvalidArgumentException;
+
 class OrderClause extends Clause
 {
+	private $directions = ['ASC', 'DESC'];
 
-    public function orderBy($column, $direction = "ASC")
+	public function orderBy($column, $direction = "ASC")
     {
-        array_push($this->clauses, sprintf(" `%s` %s", $column, $direction));
+        if (!in_array($direction, $this->directions))
+        {
+        	throw new ClauseInvalidArgumentException("Wrong order direction");
+        }
+
+        if ($column)
+        {
+	        array_push($this->clauses, sprintf("`%s` %s", $column, $direction));
+        }
     }
 
     /**

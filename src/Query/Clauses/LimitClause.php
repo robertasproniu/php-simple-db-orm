@@ -3,22 +3,22 @@
 namespace SimpleDataBaseOrm\Query\Clauses;
 
 
-use SimpleDataBaseOrm\Query\Exceptions\ClauseInvalidArgumentException;
+use SimpleDataBaseOrm\Query\Exceptions\ClauseInvalidArgumentException as ClauseInvalidArgumentException;
 
 class LimitClause extends Clause
 {
     public function limit($limit, $offset = null)
     {
-        if (!settype($limit, "integer") || ($offset && !settype($limit, "integer")))
+    	if (!is_numeric($limit) || !$limit || (isset($offset) && !is_numeric($offset)))
         {
             throw new ClauseInvalidArgumentException("Invalid arguments. Limit or Offset value should be integer.");
         }
 
-        array_push($this->clauses, sprintf(" LIMIT %s ", $limit) );
+        array_push($this->clauses, sprintf(" LIMIT %s ", (string) $limit ));
 
-        if ($offset)
+        if (isset($offset))
         {
-            array_push($this->clauses, sprintf(" OFFSET %s ", $offset));
+        	array_push($this->clauses, sprintf("OFFSET %s ",  (string) $offset));
         }
     }
 
@@ -29,11 +29,6 @@ class LimitClause extends Clause
      */
     public function __toString()
     {
-        if (empty($this->clauses))
-        {
-            return '';
-        }
-
-        return sprintf("%s", implode(' ', $this->clauses));
+        return sprintf("%s", implode('', $this->clauses));
     }
 }

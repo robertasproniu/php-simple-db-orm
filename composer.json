@@ -28,7 +28,7 @@
 
     "autoload-dev": {
         "psr-0" : {
-            "SimpleDataBaseOrmTest\\" : "tests/"
+            "SimpleDataBaseOrm\\Tests\\" : "tests/"
         }
     }
 }
