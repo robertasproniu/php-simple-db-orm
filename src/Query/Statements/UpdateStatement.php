@@ -45,8 +45,12 @@ class UpdateStatement extends Statement
         $columns = parent::parseColumns();
 
         return count($columns) > 1
-            ? implode(' = ? , ', $columns)
+            ? $this->prepareValues($columns) /*implode(' = ? , ', $columns)*/
             : sprintf("%s  = ? ", array_shift($columns));
+    }
+
+    public function prepareValues(array $columns){
+        return implode(' = ? , ', $columns)." = ? ";
     }
 
     public function table($table)
